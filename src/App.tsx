@@ -1,6 +1,7 @@
 import { FormEvent, useMemo, useState } from 'react'
-import { ArrowDown, ArrowUpRight, Check, Download, Globe2, Mail, MapPin, Menu, MessageCircle, Phone, ShieldCheck, X } from 'lucide-react'
+import { ArrowUp, ArrowUpRight, Check, Download, Globe2, Mail, MapPin, Menu, MessageCircle, Phone, ShieldCheck, X } from 'lucide-react'
 import { certifications, competencies, experience, profile, projects, stats } from './data'
+import LiquidMetalHero from './components/ui/liquid-metal-hero'
 
 const cvPath = '/Rizky-Mahreza-CV.pdf'
 const profileImage = '/profile.webp'
@@ -49,18 +50,22 @@ export function App() {
     </header>
 
     <main>
-      <section id="home" className="hero">
-        <div className="hero-grid">
-          <div className="hero-copy">
-            <div className="eyebrow light"><i/> SENIOR HSE SPECIALIST · ENERGY SECTOR</div>
-            <h1>{profile.name}</h1><h3>{profile.title}</h3><p>{profile.value}</p>
-            <div className="hero-actions"><a className="button primary" href="#contact">Get in Touch <ArrowDown size={17}/></a><button className="button outline" onClick={downloadCV}>Download CV <Download size={16}/></button></div>
-            <div className="hero-meta"><span><MapPin size={16}/> {profile.location}</span><a href={`https://wa.me/${profile.whatsapp}`} target="_blank" rel="noreferrer"><MessageCircle size={16}/> WhatsApp available</a></div>
-          </div>
+      <div id="home">
+        <LiquidMetalHero
+          badge="SENIOR HSE SPECIALIST · ENERGY SECTOR"
+          title={profile.name}
+          subtitle={profile.value}
+          primaryCtaLabel="Get in Touch"
+          secondaryCtaLabel="Download CV"
+          onPrimaryCtaClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+          onSecondaryCtaClick={downloadCV}
+          features={['HSE Leadership', 'Energy Sector', 'AK3U · Kemnaker RI']}
+        >
           <div className="profile-visual"><div className="profile-frame"><img className="profile-photo" src={profileImage} alt={`${profile.name}, ${profile.role}`} width="848" height="1200" fetchPriority="high"/><div className="float-badge">AK3U · Kemnaker RI</div><div className="profile-caption"><small>PROFILE — {profile.name}</small><b>{profile.role}</b></div><div className="years">7+</div><div className="cert-chip">CERTIFIED · ISO 45001 · 14001 · 9001</div></div></div>
-        </div>
+        </LiquidMetalHero>
+        <div className="hero-meta hero-meta-outside"><span><MapPin size={16}/> {profile.location}</span><a href={`https://wa.me/${profile.whatsapp}`} target="_blank" rel="noreferrer"><MessageCircle size={16}/> WhatsApp available</a></div>
         <div className="stats">{stats.map(([value,label]) => <div key={label}><strong>{label === 'Active Certifications' ? `${activeCerts}+` : value}</strong><span>{label}</span></div>)}</div>
-      </section>
+      </div>
 
       <section id="summary" className="section light-section"><div className="summary-grid"><div><SectionHeading eyebrow="— EXECUTIVE SUMMARY" title="Building a culture where every operation goes home safe."/><p className="lead">{profile.bio}</p><div className="pills">{['Safety Leadership','Risk Management','Regulatory Compliance','Operational Excellence'].map(x => <span key={x}>{x}</span>)}</div></div><aside className="glance"><span>AT A GLANCE</span>{[['Specialisation',profile.specialisation],['Working Area',profile.workingArea],['Education',profile.education],['Lead Credentials',profile.leadCredentials.join(' · ')],['Languages',profile.languages.join(' · ') ]].map(([k,v]) => <div key={k}><small>{k}</small><b>{v}</b></div>)}</aside></div></section>
 
