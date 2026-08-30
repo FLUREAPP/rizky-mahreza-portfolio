@@ -1,8 +1,9 @@
 import { FormEvent, useMemo, useState } from 'react'
-import { ArrowDown, ArrowUpRight, Check, ChevronDown, Download, Globe2, Mail, MapPin, Menu, Phone, ShieldCheck, X } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, Check, Download, Globe2, Mail, MapPin, Menu, Phone, ShieldCheck, X } from 'lucide-react'
 import { certifications, competencies, experience, profile, projects, stats } from './data'
 
 const cvPath = '/Rizky-Mahreza-CV.pdf'
+const profileImage = '/profile.webp'
 const nav = [['Summary','summary'],['Experience','experience'],['Competencies','competencies'],['Certifications','certifications'],['Medical','medical'],['Projects','projects'],['Contact','contact']]
 const categories = ['all','regulatory','technical','training','academic'] as const
 
@@ -58,7 +59,7 @@ export function App() {
             <div className="hero-actions"><a className="button primary" href="#contact">Get in Touch <ArrowDown size={17}/></a><button className="button outline" onClick={downloadCV}>Download CV <Download size={16}/></button></div>
             <div className="hero-meta"><span><MapPin size={16}/> {profile.location}</span><span><Check size={16}/> Open to Senior HSE Roles</span></div>
           </div>
-          <div className="profile-visual"><div className="profile-frame"><div className="portrait-placeholder"><ShieldCheck size={58}/><span>PROFILE</span></div><div className="float-badge">AK3U · Kemnaker RI</div><div className="profile-caption"><small>PROFILE — {profile.name}</small><b>{profile.role}</b></div><div className="years">7+</div><div className="cert-chip">CERTIFIED · ISO 45001 · 14001 · 9001</div></div></div>
+          <div className="profile-visual"><div className="profile-frame"><img className="profile-photo" src={profileImage} alt={`${profile.name}, ${profile.role}`} width="848" height="1200" fetchPriority="high"/><div className="float-badge">AK3U · Kemnaker RI</div><div className="profile-caption"><small>PROFILE — {profile.name}</small><b>{profile.role}</b></div><div className="years">7+</div><div className="cert-chip">CERTIFIED · ISO 45001 · 14001 · 9001</div></div></div>
         </div>
         <div className="stats">{stats.map(([value,label]) => <div key={label}><strong>{label === 'Active Certifications' ? `${activeCerts}+` : value}</strong><span>{label}</span></div>)}</div>
       </section>
