@@ -1,5 +1,18 @@
 export type CertificationCategory = 'regulatory' | 'technical' | 'training' | 'academic'
 
+type ExperienceItem = {
+  period: string
+  start: string
+  role: string
+  company: string
+  location: string
+  badge?: string
+  bullets: string[]
+}
+
+type ProjectItem = [category: string, title: string, description: string, tags: string[]]
+type StatItem = [value: string, label: string]
+
 export const profile = {
   name: 'Rizky Mahreza',
   title: 'Health, Safety & Environment Professional',
@@ -18,7 +31,7 @@ export const profile = {
   languages: ['Bahasa Indonesia (Native)', 'English (Professional)'],
 }
 
-export const experience = [
+export const experience: ExperienceItem[] = [
   { period: 'Jan 2025 – Present', start: '2025-01-01', role: 'HSE Officer', company: 'KSO Catur Elang Perkasa – Sentra Multikarya Infrastruktur', location: 'Duri, Riau (PHR Working Area)', badge: 'CURRENT ROLE', bullets: ['Safety induction & K3 training', 'Manage HSE Plan, SOP and weekly reporting aligned with SMK3 & ISO 45001', 'HIRADC/JSA and Permit-to-Work validation', 'Incident investigation and CAPA follow-up'] },
   { period: 'Nov 2023 – Sep 2024', start: '2023-11-01', role: 'Operational Coordinator & Dispatcher', company: 'Pancaran Energi Transport (assigned to Baker Hughes Indonesia)', location: 'Petra Project', badge: 'MAJOR PROJECT', bullets: ['Workforce and logistics scheduling with document control', 'Client liaison and equipment readiness monitoring', 'Proactive document renewal to eliminate expiry-related downtime', 'Cost and dispatch optimisation'] },
   { period: 'Oct 2020 – Oct 2023', start: '2020-10-01', role: 'HSE Field Officer', company: 'PT Asrindo Citraseni Satria', location: 'Pertamina Hulu Rokan – WK Rokan', bullets: ['Implemented SMK3 standards in drilling and well-service operations', 'Daily inspections, safety audits and toolbox meetings', 'PPE and Permit-to-Work enforcement', 'Contributed to zero-LTI performance'] },
@@ -52,7 +65,7 @@ export const certifications = [
   ['Hiperkes & K3', '—', 'Dinas Tenaga Kerja dan Transmigrasi DKI Jakarta / Pusat Hiperkes & Kesehatan Kerja', '2018-04-19', null, '0119/PHKK-DKI/PLT/IV/2018', 'training'],
 ] as const
 
-export const projects = [
+export const projects: ProjectItem[] = [
   ['UPSTREAM OPERATIONS', 'Contractor HSE Programme — WK Rokan', 'Zero-LTI execution across a multi-year well-service campaign in the Pertamina Hulu Rokan working area, embedding daily pre-job briefings, JSA validation and HIRADC review.', ['Zero LTI streak', 'Multi-rig coverage', 'ISO 45001 aligned']],
   ['PETRA PROJECT — BAKER HUGHES', 'Artificial Lift Systems Logistics', 'Dispatch, workforce scheduling and document control for Baker Hughes Artificial Lift Systems, reducing permit-related downtime through proactive renewal tracking.', ['24/7 dispatch', 'Document SLA 100%', 'Cross-org liaison']],
   ['CHEVRON — COOP BATCH XIV', 'HSE Field Exposure', 'Early-career HSE exposure through the Chevron–SKK Migas Coop programme, supporting field data collection and safety campaign rollout.', ['Chevron–SKK Migas', 'HSE programme']],
@@ -60,7 +73,7 @@ export const projects = [
   ['PHR WORKING AREA', 'Field Safety Operations', 'Ongoing HSE execution in the WK Rokan environment, covering induction, training, risk assessment, work permits and incident follow-up.', ['SMK3 aligned', 'HIRADC / JSA', 'CAPA follow-up']],
 ]
 
-export const stats = [
+export const stats: StatItem[] = [
   ['7+', 'Years in HSE'],
   [String(projects.length), 'Major Projects'],
   ['9+', 'Active Certifications'],
