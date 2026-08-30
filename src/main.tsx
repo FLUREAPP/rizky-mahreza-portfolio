@@ -4,6 +4,7 @@ import { App } from './App'
 import { ShaderBackground } from './components/ui/kk'
 import './styles.css'
 import './shader.css'
+import './liquid.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
