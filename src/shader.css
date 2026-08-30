@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --font-body: 'Manrope', 'DM Sans', Inter, system-ui, sans-serif;
+  --font-display: 'DM Serif Display', 'Playfair Display', Georgia, serif;
+  --shader-navy: #071426;
+  --shader-petroleum: #0b3857;
+  --shader-cyan: #72c7da;
+  --shader-orange: #f27a24;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+.nav-shell,
+main,
+footer {
+  position: relative;
+  z-index: 2;
+}
+
+.shader-page-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--shader-navy);
+}
+
+.shader-page-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 20%, rgba(7, 20, 38, 0.08), rgba(2, 8, 15, 0.34) 78%);
+  pointer-events: none;
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: transparent !important;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(4, 12, 22, 0.82) 0%, rgba(4, 12, 22, 0.62) 47%, rgba(4, 12, 22, 0.38) 100%),
+    linear-gradient(180deg, rgba(4, 12, 22, 0.14), rgba(4, 12, 22, 0.5));
+}
+
+.hero-grid,
+.stats {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1,
+.section-heading h2,
+.timeline-card h3,
+.competency-grid h3,
+.cert-card h3,
+.medical-card h3,
+.project-body h3,
+.years {
+  font-family: var(--font-display);
+}
+
+.hero h1 {
+  letter-spacing: -0.035em;
+  text-shadow: 0 10px 38px rgba(0, 0, 0, 0.28);
+}
+
+.hero h3,
+.hero p,
+.section-heading,
+.lead,
+.dark-lead,
+.timeline-card,
+.competency-grid article,
+.cert-card,
+.project-card,
+.contact-form {
+  font-family: var(--font-body);
+}
+
+.hero h3 {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.hero p,
+.dark-lead {
+  letter-spacing: -0.005em;
+}
+
+.profile-frame {
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 35px 100px rgba(0, 0, 0, 0.42);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+@media (max-width: 800px) {
+  .hero::before {
+    background: linear-gradient(180deg, rgba(4, 12, 22, 0.72), rgba(4, 12, 22, 0.55));
+  }
+}
