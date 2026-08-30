@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root{font-family:'Manrope',system-ui,sans-serif}
+body,button,input,textarea{font-family:'Manrope',system-ui,sans-serif}
+.hero h1,.section-heading h2,.timeline-card h3,.competency-grid h3,.cert-card h3,.medical-card h3,.project-body h3,.years{font-family:'DM Serif Display',Georgia,serif}
+.brand b,.brand small,nav>a,.nav-cta,.button,.eyebrow,.section-heading>span,.filters button,.stats span,.liquid-badge,.liquid-feature-card span,.cert-top small,.cert-card code,.period,.status,.fit,.mini-stats b,.contact-links span,.footer-direct>b{font-family:'Manrope',system-ui,sans-serif}
+.section-heading h2{font-weight:400;letter-spacing:-.02em}
+.hero h1{font-weight:400}
+.timeline-card h3,.competency-grid h3,.cert-card h3,.medical-card h3,.project-body h3{font-weight:400}
