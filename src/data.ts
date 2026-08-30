@@ -7,6 +7,7 @@ export const profile = {
   location: 'Riau, Indonesia',
   email: 'rizkymahrezaweb@gmail.com',
   phone: '+62 812 7619 7045',
+  whatsapp: '+6281276197045',
   linkedin: 'https://linkedin.com/in/rizky-mahreza',
   bio: 'AK3U and BNSP Oil & Gas HSE Supervisor with approximately seven years of experience across the Pertamina Hulu Rokan working area. Background in Public Health with an Occupational Health & Safety focus, with practical capability in HIRADC, JSA, Permit-to-Work, incident investigation and continuous improvement.',
   value: 'Driving operational excellence and an unshakable safety culture across the upstream oil & gas landscape — including the Pertamina Hulu Rokan working area.',
