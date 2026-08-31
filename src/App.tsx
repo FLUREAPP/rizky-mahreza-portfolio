@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { ArrowUp, ArrowUpRight, BriefcaseBusiness, Check, ExternalLink, Linkedin, MapPin, Menu, MessageCircle, ShieldCheck, X } from 'lucide-react'
+import { ArrowUp, ArrowUpRight, BriefcaseBusiness, Check, ExternalLink, Link2, MapPin, Menu, MessageCircle, ShieldCheck, X } from 'lucide-react'
 import { certifications, competencies, experience, profile, projects, stats } from './data'
 import { LiquidMetalButton } from './components/ui/liquid-metal-button'
 
@@ -212,7 +212,7 @@ export function App() {
               <p>Available for senior HSE roles, contract assignments and consulting engagements across energy, infrastructure and industrial operations.</p>
               <div className="contact-actions">
                 <a className="contact-link" href={`https://wa.me/${profile.whatsapp}`} target="_blank" rel="noreferrer"><MessageCircle size={19} /><span><small>WhatsApp</small><strong>{profile.phone}</strong></span><ExternalLink size={15} /></a>
-                <a className="contact-link" href={profile.linkedin} target="_blank" rel="noreferrer"><Linkedin size={19} /><span><small>LinkedIn</small><strong>linkedin.com/in/rizky-mahreza</strong></span><ExternalLink size={15} /></a>
+                <a className="contact-link" href={profile.linkedin} target="_blank" rel="noreferrer"><Link2 size={19} /><span><small>LinkedIn</small><strong>linkedin.com/in/rizky-mahreza</strong></span><ExternalLink size={15} /></a>
                 <LiquidMetalButton label="Download latest CV" width={188} onClick={downloadCV} ariaLabel="Download latest CV" />
               </div>
             </div>
