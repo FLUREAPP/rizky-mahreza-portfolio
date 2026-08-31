@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
-import { LiquidMetal, liquidMetalPresets } from '@paper-design/shaders-react'
 import { motion, useReducedMotion } from 'framer-motion'
+import { LiquidMetal, liquidMetalPresets } from '@paper-design/shaders-react'
+import { LiquidMetalButton } from './liquid-metal-button'
 
 interface LiquidMetalHeroProps {
   badge?: string
@@ -46,25 +47,9 @@ export default function LiquidMetalHero({
           <h1>{title}</h1>
           <p>{subtitle}</p>
           <div className="liquid-actions">
-            <motion.button
-              type="button"
-              className="button primary liquid-button"
-              onClick={onPrimaryCtaClick}
-              whileHover={reducedMotion ? undefined : { scale: 1.03, y: -2 }}
-              whileTap={reducedMotion ? undefined : { scale: 0.98 }}
-            >
-              {primaryCtaLabel}
-            </motion.button>
+            <LiquidMetalButton label={primaryCtaLabel} onClick={onPrimaryCtaClick} />
             {secondaryCtaLabel && onSecondaryCtaClick && (
-              <motion.button
-                type="button"
-                className="button liquid-outline-button"
-                onClick={onSecondaryCtaClick}
-                whileHover={reducedMotion ? undefined : { scale: 1.03, y: -2 }}
-                whileTap={reducedMotion ? undefined : { scale: 0.98 }}
-              >
-                {secondaryCtaLabel}
-              </motion.button>
+              <LiquidMetalButton label={secondaryCtaLabel} onClick={onSecondaryCtaClick} />
             )}
           </div>
           {features.length > 0 && (

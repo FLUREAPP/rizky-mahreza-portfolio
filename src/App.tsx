@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
-import { ArrowUpRight, BriefcaseBusiness, Check, Download, ExternalLink, Globe2, Linkedin, MapPin, Menu, MessageCircle, ShieldCheck, X } from 'lucide-react'
+import { ArrowUp, ArrowUpRight, BriefcaseBusiness, Check, ExternalLink, Link2, MapPin, Menu, MessageCircle, ShieldCheck, X } from 'lucide-react'
 import { certifications, competencies, experience, profile, projects, stats } from './data'
+import { LiquidMetalButton } from './components/ui/liquid-metal-button'
 
 const cvPath = '/Rizky-Mahreza-CV.pdf'
 const profileImage = '/profile.webp'
@@ -49,16 +50,20 @@ export function App() {
             <small>HSE • OIL & GAS</small>
           </span>
         </a>
-        <button className="menu-toggle" aria-label="Toggle navigation" aria-expanded={menuOpen} onClick={() => setMenuOpen((v) => !v)}>
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <LiquidMetalButton
+          viewMode="icon"
+          icon={menuOpen ? <X size={20} /> : <Menu size={20} />}
+          ariaLabel="Toggle navigation"
+          width={46}
+          onClick={() => setMenuOpen((v) => !v)}
+        />
         <nav className={menuOpen ? 'open' : ''}>
           {nav.map(([label, id]) => (
             <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>
           ))}
           <span className="nav-divider" />
-          <button className="nav-lang" type="button" aria-label="Language English"><Globe2 size={15} /> EN</button>
-          <button className="button button-small button-dark" type="button" onClick={downloadCV}><Download size={15} /> CV</button>
+          <LiquidMetalButton label="EN" ariaLabel="Language English" width={64} />
+          <LiquidMetalButton label="CV" width={74} onClick={downloadCV} />
         </nav>
       </header>
 
@@ -71,8 +76,8 @@ export function App() {
               <h1>Safety leadership for<br /><em>high-risk operations.</em></h1>
               <p className="hero-lead">{profile.value}</p>
               <div className="hero-actions">
-                <a className="button button-primary" href="#contact">Let's Talk <ArrowUpRight size={17} /></a>
-                <button className="button button-ghost" type="button" onClick={downloadCV}><Download size={17} /> View CV</button>
+                <LiquidMetalButton label="Let's Talk" href="#contact" />
+                <LiquidMetalButton label="View CV" onClick={downloadCV} width={118} />
               </div>
               <div className="hero-proof">
                 <div><strong>{stats[0][0]}</strong><span>Years in HSE</span></div>
@@ -154,7 +159,15 @@ export function App() {
           <div className="section-head-row">
             <SectionIntro kicker="04 · CREDENTIALS" title="Proof, not promises." copy="Certifications and formal credentials across regulatory, technical, training and academic domains." />
             <div className="filters" aria-label="Credential filters">
-              {categories.map((item) => <button key={item} className={category === item ? 'active' : ''} type="button" onClick={() => setCategory(item)}>{item}</button>)}
+              {categories.map((item) => (
+                <LiquidMetalButton
+                  key={item}
+                  label={item}
+                  width={Math.max(78, Math.min(112, item.length * 8 + 30))}
+                  onClick={() => setCategory(item)}
+                  ariaLabel={`Filter credentials: ${item}`}
+                />
+              ))}
             </div>
           </div>
           <div className="credentials-grid">
@@ -199,8 +212,8 @@ export function App() {
               <p>Available for senior HSE roles, contract assignments and consulting engagements across energy, infrastructure and industrial operations.</p>
               <div className="contact-actions">
                 <a className="contact-link" href={`https://wa.me/${profile.whatsapp}`} target="_blank" rel="noreferrer"><MessageCircle size={19} /><span><small>WhatsApp</small><strong>{profile.phone}</strong></span><ExternalLink size={15} /></a>
-                <a className="contact-link" href={profile.linkedin} target="_blank" rel="noreferrer"><Linkedin size={19} /><span><small>LinkedIn</small><strong>linkedin.com/in/rizky-mahreza</strong></span><ExternalLink size={15} /></a>
-                <button className="contact-link" type="button" onClick={downloadCV}><Download size={19} /><span><small>Curriculum Vitae</small><strong>Download latest CV</strong></span><ExternalLink size={15} /></button>
+                <a className="contact-link" href={profile.linkedin} target="_blank" rel="noreferrer"><Link2 size={19} /><span><small>LinkedIn</small><strong>linkedin.com/in/rizky-mahreza</strong></span><ExternalLink size={15} /></a>
+                <LiquidMetalButton label="Download latest CV" width={188} onClick={downloadCV} ariaLabel="Download latest CV" />
               </div>
             </div>
             <div className="contact-card">

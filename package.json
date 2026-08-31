@@ -9,6 +9,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@paper-design/shaders": "0.0.80",
     "@paper-design/shaders-react": "0.0.80",
     "framer-motion": "13.1.1",
     "@vitejs/plugin-react": "latest",
