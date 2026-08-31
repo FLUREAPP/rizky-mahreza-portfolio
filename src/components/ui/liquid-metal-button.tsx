@@ -29,7 +29,7 @@ export function LiquidMetalButton({
   const [isPressed, setIsPressed] = useState(false)
   const [ripples, setRipples] = useState<Array<{ x: number; y: number; id: number }>>([])
   const shaderRef = useRef<HTMLDivElement>(null)
-  const shaderMount = useRef<ShaderMount | null>(null)
+  const shaderMount = useRef<any>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
   const anchorRef = useRef<HTMLAnchorElement>(null)
   const rippleId = useRef(0)
@@ -68,7 +68,7 @@ export function LiquidMetalButton({
 
     if (shaderRef.current) {
       try {
-        shaderMount.current?.destroy()
+        shaderMount.current?.destroy?.()
         shaderMount.current = new ShaderMount(
           shaderRef.current,
           liquidMetalFragmentShader,
@@ -94,7 +94,7 @@ export function LiquidMetalButton({
     }
 
     return () => {
-      shaderMount.current?.destroy()
+      shaderMount.current?.destroy?.()
       shaderMount.current = null
     }
   }, [])
