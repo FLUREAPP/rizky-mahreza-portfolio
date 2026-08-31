@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { ArrowUp, ArrowUpRight, BriefcaseBusiness, Check, Download, ExternalLink, Globe2, Linkedin, MapPin, Menu, MessageCircle, ShieldCheck, X } from 'lucide-react'
+import { ArrowUp, ArrowUpRight, BriefcaseBusiness, Check, ExternalLink, Linkedin, MapPin, Menu, MessageCircle, ShieldCheck, X } from 'lucide-react'
 import { certifications, competencies, experience, profile, projects, stats } from './data'
 import { LiquidMetalButton } from './components/ui/liquid-metal-button'
 
@@ -62,7 +62,7 @@ export function App() {
             <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>
           ))}
           <span className="nav-divider" />
-          <LiquidMetalButton label="EN" ariaLabel="Language English" width={64} onClick={() => undefined} />
+          <LiquidMetalButton label="EN" ariaLabel="Language English" width={64} />
           <LiquidMetalButton label="CV" width={74} onClick={downloadCV} />
         </nav>
       </header>
