@@ -992,8 +992,9 @@ function SplashCursor({
     let firstMouseMoveHandled = false;
     function handleMouseMove(e) {
       let pointer = pointers[0];
-      let posX = scaleByPixelRatio(e.clientX);
-      let posY = scaleByPixelRatio(e.clientY);
+      const rect = canvas.getBoundingClientRect();
+      let posX = scaleByPixelRatio(e.clientX - rect.left);
+      let posY = scaleByPixelRatio(e.clientY - rect.top);
       if (!firstMouseMoveHandled) {
         let color = generateColor();
         updatePointerMoveData(pointer, posX, posY, color);
@@ -1017,9 +1018,10 @@ function SplashCursor({
     function handleTouchMove(e) {
       const touches = e.targetTouches;
       let pointer = pointers[0];
+      const rect = canvas.getBoundingClientRect();
       for (let i = 0; i < touches.length; i++) {
-        let posX = scaleByPixelRatio(touches[i].clientX);
-        let posY = scaleByPixelRatio(touches[i].clientY);
+        let posX = scaleByPixelRatio(touches[i].clientX - rect.left);
+        let posY = scaleByPixelRatio(touches[i].clientY - rect.top);
         updatePointerMoveData(pointer, posX, posY, pointer.color);
       }
     }
@@ -1078,8 +1080,8 @@ function SplashCursor({
         ref={canvasRef}
         id="fluid"
         style={{
-          width: '100vw',
-          height: '100vh',
+          width: '100%',
+          height: '100%',
           display: 'block'
         }}
       />
