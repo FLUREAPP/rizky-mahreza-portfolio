@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { ArrowUp, ArrowUpRight, BriefcaseBusiness, Check, ExternalLink, Link2, MapPin, Menu, MessageCircle, ShieldCheck, X } from 'lucide-react'
+import { ArrowUp, ArrowUpRight, BriefcaseBusiness, Check, ExternalLink, Instagram, Link2, Mail, MapPin, Menu, MessageCircle, ShieldCheck, X } from 'lucide-react'
 import { certifications, competencies, experience, profile, projects, stats } from './data'
 import { LiquidMetalButton } from './components/ui/liquid-metal-button'
 
@@ -16,6 +16,23 @@ const nav = [
 const categories = ['all', 'regulatory', 'technical', 'training', 'academic'] as const
 
 type Category = typeof categories[number]
+
+function LinkedinMark({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M6.5 8.25A1.75 1.75 0 1 0 6.5 4.75a1.75 1.75 0 0 0 0 3.5ZM5 9.75h3v9.5H5v-9.5Zm5 0h2.88v1.3h.04c.4-.76 1.38-1.55 2.84-1.55 3.04 0 3.6 2 3.6 4.6v5.15h-3v-4.57c0-1.09-.02-2.5-1.52-2.5-1.52 0-1.75 1.18-1.75 2.42v4.65h-3v-9.5Z"/>
+    </svg>
+  )
+}
+
+function DiscordMark({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M19.54 5.4a16.1 16.1 0 0 0-3.96-1.22l-.48.99a14.7 14.7 0 0 0-6.2 0l-.48-.99A16.1 16.1 0 0 0 4.46 5.4C1.98 9.1 1.31 12.7 1.64 16.26a16 16 0 0 0 4.85 2.46l1.17-1.58a9.3 9.3 0 0 1-1.84-.88l.45-.34c3.56 1.65 7.42 1.65 10.94 0l.45.34c-.59.35-1.2.64-1.84.88l1.17 1.58a16 16 0 0 0 4.85-2.46c.38-4.12-.68-7.68-2.3-10.86Zm-10.73 8.72c-1.05 0-1.91-.96-1.91-2.14s.85-2.14 1.91-2.14 1.92.97 1.91 2.14c0 1.18-.86 2.14-1.91 2.14Zm6.38 0c-1.05 0-1.91-.96-1.91-2.14s.85-2.14 1.91-2.14 1.92.97 1.91 2.14c0 1.18-.86 2.14-1.91 2.14Z"/>
+    </svg>
+  )
+}
+
 
 function SectionIntro({ kicker, title, copy }: { kicker: string; title: string; copy?: string }) {
   return (
@@ -174,12 +191,15 @@ export function App() {
             {filtered.map((item) => {
               const active = !item[4] || new Date(item[4]) >= new Date()
               return (
-                <article className="credential-card" key={item[0]}>
-                  <div className="credential-top"><span>{item[6]}</span>{item[4] && <b className={active ? 'valid' : 'expired'}>{active ? 'ACTIVE' : 'EXPIRED'}</b>}</div>
-                  <h3>{item[0]}</h3>
-                  <p>{item[1]}</p>
-                  <strong>{item[2]}</strong>
-                  <div className="credential-meta"><span>Issued {item[3]}</span><span>{item[4] ? `Valid to ${item[4]}` : 'No expiry stated'}</span></div>
+                <article className="credential-card luminous-card" key={item[0]}>
+                  <div className="credential-luminous-icon" aria-hidden="true"><ShieldCheck size={23} strokeWidth={1.8} /></div>
+                  <div className="credential-content">
+                    <div className="credential-top"><span>{item[6]}</span>{item[4] && <b className={active ? 'valid' : 'expired'}>{active ? 'ACTIVE' : 'EXPIRED'}</b>}</div>
+                    <h3>{item[0]}</h3>
+                    <p>{item[1]}</p>
+                    <strong>{item[2]}</strong>
+                    <div className="credential-meta"><span>Issued {item[3]}</span><span>{item[4] ? `Valid to ${item[4]}` : 'No expiry stated'}</span></div>
+                  </div>
                 </article>
               )
             })}
@@ -210,9 +230,29 @@ export function App() {
               <span className="section-kicker">06 · CONTACT</span>
               <h2>Let's talk about safer,<br /><em>stronger operations.</em></h2>
               <p>Available for senior HSE roles, contract assignments and consulting engagements across energy, infrastructure and industrial operations.</p>
-              <div className="contact-actions">
-                <a className="contact-link" href={`https://wa.me/${profile.whatsapp}`} target="_blank" rel="noreferrer"><MessageCircle size={19} /><span><small>WhatsApp</small><strong>{profile.phone}</strong></span><ExternalLink size={15} /></a>
-                <a className="contact-link" href={profile.linkedin} target="_blank" rel="noreferrer"><Link2 size={19} /><span><small>LinkedIn</small><strong>linkedin.com/in/rizky-mahreza</strong></span><ExternalLink size={15} /></a>
+              <div className="social-card-grid" aria-label="Social and contact links">
+                <a className="social-card social-card-instagram" href={profile.instagram} target="_blank" rel="noreferrer" aria-label="Instagram">
+                  <Instagram className="social-card-icon" size={24} />
+                  <span className="social-card-text"><small>Instagram</small><strong>@rizkymahreza</strong></span>
+                </a>
+                <a className="social-card social-card-linkedin" href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                  <LinkedinMark className="social-card-brand-icon" />
+                  <span className="social-card-text"><small>LinkedIn</small><strong>linkedin.com/in/rizky-mahreza</strong></span>
+                </a>
+                <a className="social-card social-card-discord" href={profile.discordUrl} target="_blank" rel="noreferrer" aria-label="Discord">
+                  <DiscordMark className="social-card-brand-icon" />
+                  <span className="social-card-text"><small>Discord</small><strong>{profile.discordUsername}</strong></span>
+                </a>
+                <a className="social-card social-card-email" href={`mailto:${profile.email}`} aria-label="Email">
+                  <Mail className="social-card-icon" size={24} />
+                  <span className="social-card-text"><small>Email</small><strong>{profile.email}</strong></span>
+                </a>
+                <a className="social-card social-card-whatsapp" href={`https://wa.me/${profile.whatsapp}`} target="_blank" rel="noreferrer" aria-label="WhatsApp">
+                  <MessageCircle className="social-card-icon" size={24} />
+                  <span className="social-card-text"><small>WhatsApp</small><strong>{profile.phone}</strong></span>
+                </a>
+              </div>
+              <div className="contact-cv-action">
                 <LiquidMetalButton label="Download latest CV" width={188} onClick={downloadCV} ariaLabel="Download latest CV" />
               </div>
             </div>
