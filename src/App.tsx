@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { ArrowUp, ArrowUpRight, BriefcaseBusiness, Check, Instagram, Mail, MapPin, Menu, MessageCircle, ShieldCheck, X } from 'lucide-react'
+import { ArrowUp, ArrowUpRight, BriefcaseBusiness, Check, Mail, MapPin, Menu, MessageCircle, ShieldCheck, X } from 'lucide-react'
 import { certifications, competencies, experience, profile, projects, stats } from './data'
 import { LiquidMetalButton } from './components/ui/liquid-metal-button'
 import SplashCursor from './components/ui/SplashCursor'
@@ -269,7 +269,9 @@ export function App() {
               <p>Available for senior HSE roles, contract assignments and consulting engagements across energy, infrastructure and industrial operations.</p>
               <div className="social-card-grid" aria-label="Social and contact links">
                 <a className="social-card social-card-instagram" href={profile.instagram} target="_blank" rel="noreferrer" aria-label="Instagram">
-                  <Instagram className="social-card-icon" size={24} />
+                  <svg className="social-card-brand-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M7.1 2.9h9.8A4.2 4.2 0 0 1 21.1 7v10A4.2 4.2 0 0 1 16.9 21.2H7.1A4.2 4.2 0 0 1 2.9 17V7A4.2 4.2 0 0 1 7.1 2.9Zm0 1.8A2.4 2.4 0 0 0 4.7 7v10a2.4 2.4 0 0 0 2.4 2.4h9.8a2.4 2.4 0 0 0 2.4-2.4V7a2.4 2.4 0 0 0-2.4-2.3H7.1Zm10.2 1.3a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1ZM12 7.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8Zm0 1.8a3.1 3.1 0 1 0 0 6.2 3.1 3.1 0 0 0 0-6.2Z"/>
+                  </svg>
                   <span className="social-card-text"><small>Instagram</small><strong>@rizkymahreza</strong></span>
                 </a>
                 <a className="social-card social-card-linkedin" href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
