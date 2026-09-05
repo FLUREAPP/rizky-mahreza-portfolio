@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { ArrowUp, ArrowUpRight, BriefcaseBusiness, Check, ExternalLink, Instagram, Link2, Mail, MapPin, Menu, MessageCircle, ShieldCheck, X } from 'lucide-react'
 import { certifications, competencies, experience, profile, projects, stats } from './data'
 import { LiquidMetalButton } from './components/ui/liquid-metal-button'
+import SplashCursor from './components/ui/SplashCursor'
 
 const cvPath = '/Rizky-Mahreza-CV.pdf'
 const profileImage = '/profile.webp'
@@ -203,6 +204,42 @@ export function App() {
                 </article>
               )
             })}
+          </div>
+        </section>
+
+        <section id="approach" className="approach-section">
+          <div className="approach-background" aria-hidden="true">
+            <SplashCursor
+              SIM_RESOLUTION={128}
+              DYE_RESOLUTION={1440}
+              DENSITY_DISSIPATION={3.5}
+              VELOCITY_DISSIPATION={2}
+              PRESSURE={0.1}
+              CURL={3}
+              SPLAT_RADIUS={0.2}
+              SPLAT_FORCE={6000}
+              COLOR_UPDATE_SPEED={10}
+            />
+          </div>
+          <div className="approach-content">
+            <div className="approach-intro">
+              <div>
+                <span className="section-kicker">MY PROFESSIONAL APPROACH</span>
+                <h2>PREVENTION<br />BEFORE<br />INCIDENT.</h2>
+              </div>
+              <div className="approach-copy">
+                <p>Safety is more than compliance. It is about identifying risks before work begins, preparing people properly, and making sure the right controls are in place.</p>
+                <strong>SAFE PEOPLE.<br />SAFE OPERATIONS.<br />BETTER OUTCOMES.</strong>
+              </div>
+            </div>
+            <div className="approach-cta">
+              <span className="section-kicker">CLOSING CTA</span>
+              <h3>Let's build safer,<br />smarter, and<br />more reliable<br />operations.</h3>
+              <div className="approach-actions">
+                <LiquidMetalButton label="Let's Work Together" href="#contact" width={162} />
+                <LiquidMetalButton label="Connect on LinkedIn" href={profile.linkedin} width={174} />
+              </div>
+            </div>
           </div>
         </section>
 
