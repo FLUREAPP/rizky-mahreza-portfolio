@@ -6,6 +6,7 @@ import './styles.css'
 import './shader.css'
 import './liquid.css'
 import './theme.css'
+import './components/ui/luminous-credential.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
