@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { ArrowUp, ArrowUpRight, BriefcaseBusiness, Check, ExternalLink, Instagram, Link2, Mail, MapPin, Menu, MessageCircle, ShieldCheck, X } from 'lucide-react'
+import { ArrowUp, ArrowUpRight, BriefcaseBusiness, Check, Instagram, Mail, MapPin, Menu, MessageCircle, ShieldCheck, X } from 'lucide-react'
 import { certifications, competencies, experience, profile, projects, stats } from './data'
 import { LiquidMetalButton } from './components/ui/liquid-metal-button'
 import SplashCursor from './components/ui/SplashCursor'
