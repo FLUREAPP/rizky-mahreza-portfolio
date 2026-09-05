@@ -45,3 +45,111 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:24px;pa
 @media(max-width:820px){.nav-shell{height:68px}.menu-toggle{display:block}.nav-shell nav{display:none;position:absolute;top:68px;left:0;right:0;padding:16px 20px;flex-direction:column;align-items:stretch;gap:0;background:#071425;border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 20px 40px rgba(0,0,0,.24)}.nav-shell nav.open{display:flex}.nav-shell nav a{padding:10px 0}.nav-divider{display:none}.nav-lang{padding:10px 0;justify-content:flex-start}.nav-shell .button-small{width:100%;margin-top:5px}.hero{min-height:auto;padding-top:62px}.hero-grid{grid-template-columns:1fr}.hero-copy{padding-bottom:0}.hero h1{font-size:clamp(52px,15vw,82px)}.hero-proof{margin-top:39px}.hero-portrait{min-height:0;margin-top:36px}.portrait-card{height:520px;min-height:0}.portrait-note{right:-4px;bottom:18px}.hero-bottom{flex-wrap:wrap;margin-top:35px}.hero-bottom span:nth-child(2){display:none}.experience-item{grid-template-columns:46px 1fr;gap:15px}.credentials-grid,.expertise-grid{grid-template-columns:1fr}.project-row{grid-template-columns:40px 1fr 22px;gap:12px}.contact-grid{grid-template-columns:1fr;gap:40px}}
 @media(max-width:520px){.brand-copy small{display:none}.hero-proof div{padding-right:10px}.hero-proof div+div{padding-left:10px}.hero-proof strong{font-size:27px}.body-large{font-size:17px}.section{padding-top:68px;padding-bottom:68px}.portrait-card{height:470px}.portrait-note{position:relative;right:auto;bottom:auto;margin:-32px 12px 0 auto;z-index:2}.contact-copy h2{font-size:51px}footer{align-items:flex-start;flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Social contact cards — adapted from the selected Uiverse card pattern. */
+.social-card-grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:10px;
+  margin-top:31px;
+  max-width:720px;
+}
+.social-card{
+  position:relative;
+  min-height:112px;
+  padding:19px 15px 14px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:18px;
+  background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));
+  color:#fff;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 10px 30px rgba(0,0,0,.16);
+  transition:transform .25s ease,background .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.social-card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(135deg,rgba(255,255,255,.09),transparent 34%);
+  opacity:.65;
+}
+.social-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(114,201,220,.4);
+  background:linear-gradient(145deg,rgba(114,201,220,.14),rgba(255,255,255,.035));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 18px 38px rgba(0,0,0,.22);
+}
+.social-card-icon,.social-card-brand-icon{position:relative;z-index:1;color:var(--cyan)}
+.social-card-brand-icon{width:24px;height:24px;display:block}
+.social-card-text{position:relative;z-index:1;display:grid;gap:4px;min-width:0}
+.social-card-text small{color:#7f91a4;font-size:8px;letter-spacing:.13em;text-transform:uppercase;font-weight:900}
+.social-card-text strong{color:#e7eef5;font-size:9px;line-height:1.35;overflow-wrap:anywhere}
+.social-card-instagram:hover{border-color:rgba(204,57,164,.45)}
+.social-card-instagram:hover .social-card-icon{color:#ff76cf}
+.social-card-linkedin:hover{border-color:rgba(3,119,181,.45)}
+.social-card-linkedin:hover .social-card-brand-icon{color:#38a6e6}
+.social-card-discord:hover{border-color:rgba(140,158,255,.5)}
+.social-card-discord:hover .social-card-brand-icon{color:#a5b2ff}
+.social-card-email:hover{border-color:rgba(243,197,106,.5)}
+.social-card-email:hover .social-card-icon{color:var(--accent)}
+.social-card-whatsapp:hover{border-color:rgba(83,209,139,.5)}
+.social-card-whatsapp:hover .social-card-icon{color:#62e29e}
+.contact-cv-action{margin-top:11px}
+@media(max-width:1050px){
+  .social-card-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+}
+@media(max-width:620px){
+  .social-card-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .social-card{min-height:104px;padding:16px 14px 13px;}
+}
+@media(max-width:390px){
+  .social-card-grid{grid-template-columns:1fr;}
+}
+
+/* Prevention / closing section with section-scoped SplashCursor. */
+.approach-section{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  min-height:720px;
+  padding:clamp(86px,9vw,130px) clamp(20px,6vw,84px);
+  background:#050608;
+  color:#fff;
+}
+.approach-background{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.approach-background > div{opacity:.68}
+.approach-content{position:relative;z-index:2;max-width:1280px;margin:0 auto}
+.approach-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(230px,300px);gap:clamp(50px,8vw,110px);align-items:start}
+.approach-section .section-kicker{color:#f3c56a}
+.approach-intro h2{
+  margin:18px 0 0;
+  font:800 clamp(54px,8vw,112px)/.88 var(--font-body);
+  letter-spacing:-.055em;
+  max-width:760px;
+}
+.approach-copy{padding-top:46px}
+.approach-copy p{margin:0;color:#9ba5b2;font-size:12px;line-height:1.8}
+.approach-copy strong{display:block;margin-top:29px;color:#fff;font-size:9px;line-height:1.75;letter-spacing:.14em}
+.approach-cta{max-width:520px;margin:116px auto 0;text-align:center}
+.approach-cta .section-kicker{font-size:8px}
+.approach-cta h3{margin:13px 0 0;font:800 clamp(42px,5.5vw,72px)/.98 var(--font-body);letter-spacing:-.045em}
+.approach-actions{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:23px}
+.approach-actions .button{min-width:0}
+@media(max-width:820px){
+  .approach-section{min-height:780px}
+  .approach-intro{grid-template-columns:1fr;gap:33px}
+  .approach-intro h2{font-size:clamp(50px,14vw,84px)}
+  .approach-copy{padding-top:0;max-width:430px}
+  .approach-cta{margin-top:92px}
+}
+@media(max-width:520px){
+  .approach-section{min-height:760px;padding-top:72px;padding-bottom:72px}
+  .approach-intro h2{font-size:clamp(46px,15vw,70px);line-height:.9}
+  .approach-copy p{font-size:11px}
+  .approach-cta{margin-top:76px}
+  .approach-cta h3{font-size:clamp(38px,12vw,58px)}
+}
